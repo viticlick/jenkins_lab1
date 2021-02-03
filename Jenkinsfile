@@ -13,6 +13,7 @@ pipeline {
     stage('Fluffy Test') {
       steps {
         sh './jenkins/test.sh'
+        junit 'build/test-results/test/**/*.xml'
       }
     }
 
