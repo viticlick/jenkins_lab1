@@ -12,9 +12,21 @@ pipeline {
     }
 
     stage('Fluffy Test') {
-      steps {
-        sh './jenkins/test.sh'
-        junit 'build/test-results/test/**/*.xml'
+      parallel {
+        stage('Test A') {
+          steps {
+            sh './jenkins/test.sh'
+            junit 'build/test-results/test/**/*.xml'
+          }
+        }
+
+        stage('Test B') {
+          steps {
+            sh '''sleep 10
+echo done!'''
+          }
+        }
+
       }
     }
 
