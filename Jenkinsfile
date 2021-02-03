@@ -6,6 +6,7 @@ pipeline {
         echo 'Placeholder'
         sh './jenkins/build.sh'
         sh './gradlew clean build'
+        archiveArtifacts(artifacts: 'build/**/*.class', fingerprint: true)
       }
     }
 
