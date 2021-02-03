@@ -5,6 +5,7 @@ pipeline {
       steps {
         echo 'Placeholder'
         sh './jenkins/build.sh'
+        sh './gradlew clean build'
       }
     }
 
