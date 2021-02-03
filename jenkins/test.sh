@@ -1,0 +1,1 @@
+echo 'This script run all the tests'

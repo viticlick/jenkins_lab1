@@ -1,0 +1,1 @@
+echo 'This message is printed from a bash script'
