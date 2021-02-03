@@ -4,7 +4,8 @@ pipeline {
     stage('Fluffy Build') {
       steps {
         echo 'Placeholder'
-        sh './jenkins/build.sh'
+        sh '''echo "Im a ${BUZZ_NAME}"
+./jenkins/build.sh'''
         sh './gradlew clean build'
         archiveArtifacts(artifacts: 'build/**/*.class', fingerprint: true)
       }
@@ -17,5 +18,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    BUZZ_NAME = 'Worker Bee'
   }
 }
